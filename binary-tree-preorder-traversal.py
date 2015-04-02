@@ -10,9 +10,9 @@ class Solution:
     # @return a list of integers
     def preorderTraversal(self, root):
         # the overall idea of a pre-order traversal is 
-        # visit <    root     > ; print the value somewhere ; append to a stack
-        # < visit left  > 
-        # < visit right >
+        # visit < root  >  node
+        # visit < left  >  node 
+        # visit < right >  node
         
         if root == None:
             return []

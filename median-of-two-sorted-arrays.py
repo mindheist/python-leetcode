@@ -1,6 +1,10 @@
 class Solution:
     # @return a float
     def findMedianSortedArrays(self, A, B):
+        # this solution sorts the two arrays ; and picks the two middle elements
+        # the real challenge is to be able to do this without appending the two
+        # and sorting them
+        
         A = sorted(A + B )
         if len(A) > 2:
             if len(A)%2 != 0 :
