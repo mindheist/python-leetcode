@@ -4,6 +4,15 @@
 
 # The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
 
+# Solution
+# ========
+# The idea here is to 
+# (1) use a map (dictinary) which contains opening parentheses as key and closing parantheses as the value
+# (2) use a stack & push all opening parentheses into it. 
+# (3) Everytime you encounter a closing parantheses , pop the stack and lookup the map , if there is match ; the parantheses are balanced
+# (4) continue till all opening parantheses are popped 
+
+
 class Solution:
     # @return a boolean
     def isValid(self, s):
