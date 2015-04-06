@@ -11,7 +11,7 @@ class Solution:
         # We initialize both of these variables to A[0] - the first element of the array.
         
         for x in A[1:]:
-            #starting from the second element , A[1]
+            # starting from the second element , A[1]
             max_ending_here = max(x, max_ending_here+x)
             max_so_far = max(max_so_far,max_ending_here)
             

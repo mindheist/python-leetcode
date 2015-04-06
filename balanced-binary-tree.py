@@ -1,10 +1,7 @@
 # Given a binary tree, determine if it is height-balanced.
 
-# For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
-
-
-
-
+# For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of 
+# every node never differ by more than 1.
 
 # Definition for a  binary tree node
 # class TreeNode:
@@ -14,6 +11,12 @@
 #         self.right = None
 
 # The expected result is to return a bool ; True -> if its balanced & False -> if not balanced
+
+#Solution
+#========
+
+# (1) We make use of an extra function that calculates the height of a given Node ; with a simple twist - 
+# (2) return -1 in case, the difference between the height of left and right is > 1
 
 class Solution:
     # @param root, a tree node
