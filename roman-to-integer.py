@@ -1,3 +1,21 @@
+#https://leetcode.com/problems/roman-to-integer/
+# Given a roman numeral, convert it to an integer.
+
+# Input is guaranteed to be within the range from 1 to 3999.
+
+
+# Solution
+# ========
+# (1) The idea is fairly straight forward - Use a dictionary of Key:values ( in which the roman numerals are the Keys and the values are the integer equivalents
+
+# (2) The character string will be parsed from right to left
+
+# (3) the variable "running_value" tracks the result so far
+
+# (4) Keep adding to the result if the romans numbers are in the increasing order
+
+# (5) In case the onder decreases , subtract that value from the result (ie) ex: IV - while parsing from Right to Left I < V , subtract the value of I from V
+
 class Solution:
     # @return an integer
     def romanToInt(self, s):
@@ -28,4 +46,4 @@ my_solution = Solution()
 # print "XXXV =" , my_solution.romanToInt('XXXV')
 # print "XL = " , my_solution.romanToInt('XL')
 print "MCMXCVI = " , my_solution.romanToInt('MCMXCVI')
-
+print my_solution.romanToInt('XLIX')
