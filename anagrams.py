@@ -1,5 +1,5 @@
 
-# # Anagrams : https://leetcode.com/problems/anagrams/
+# Anagrams : https://leetcode.com/problems/anagrams/
 
 # Given an array of strings, return all groups of strings that are anagrams.
 
@@ -33,7 +33,7 @@ class Solution:
         # 	print elem,count[''.join(sorted(elem))]
 
         return_list = [ elem for elem in strs if count[''.join(sorted(elem))]>1]
-        
+
         # filter the list , such that the count[elem] > 1
 
         return return_list
