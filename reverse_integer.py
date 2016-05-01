@@ -7,6 +7,9 @@
 #  Looks like l33tcode has this solution implemented for Java/ C , Note that
 # the system max in those languages have a different range
 
+# Thinking about this again , I guess I might have taken a short cut here .
+# I shouldn't have used string reverse here , and should have used a multiply logic.
+
 
 import sys
 class Solution:
