@@ -6,6 +6,9 @@
 # top() -- Get the top element.
 # getMin() -- Retrieve the minimum element in the stack.
 
+# solution explanation : http://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/
+
+
 class MinStack(object):
 
     def __init__(self):
