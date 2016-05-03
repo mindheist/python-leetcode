@@ -26,3 +26,5 @@ class Solution(object):
             # del node_to_delete --> I see some people do this at the end of the solution
             # Never has leetcode mentioned the availability of 'del', should ponder into
             # this more
+
+# BTW : I unlocked this solution for solving this , https://leetcode.com/articles/delete-node-linked-list/
