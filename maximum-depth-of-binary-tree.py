@@ -5,6 +5,13 @@
 #         self.left = None
 #         self.right = None
 
+# peope always use height and depth interchangeably : This article explains the difference clearly
+
+# http://stackoverflow.com/questions/2603692/what-is-the-difference-between-tree-depth-and-height
+
+# should add visualization to this recursive solution.
+
+
 class Solution:
     # @param root, a tree node
     # @return an integer
