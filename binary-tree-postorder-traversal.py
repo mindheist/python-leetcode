@@ -23,7 +23,6 @@
 
 
 # Check out this video for further explanation https://www.youtube.com/watch?v=qT65HltK2uE
-
 # But here are the key steps
 # initialize two stacks ( one of them is just for processing , other stack is the output stack)
 

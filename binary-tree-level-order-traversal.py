@@ -34,6 +34,10 @@ class Solution:
         # the difference between DFS and BFS is that - we use a Queue in BFS ( instead of a stack in DFS)
         processing_queue , final_result = [root],[]
         # seed the queue above with root element
+
+        # ** Note : This is a conceptual Queue , the head of the queue could be either on the left or the right
+        # if the head of the queue is on the left - you dequeue by popping the element at index 0
+        #                                        - you enqueue by appending to the right of the list
         while processing_queue:
             level_vals , length = [],len(processing_queue)
             for i in range(length):
