@@ -26,7 +26,12 @@
 
 # Overall Algorithm
 # -----------------
-#
+# We use TWO QUEUES to perform a level order traversal on a Binary Tree - Call them processing_queue and final_queue
+# Seed the processing_queue with the root of the tree
+# Note that , in every iternation - the length and level_vals variables get reset
+# We add the children of all nodes on the current level to the processing_queue and add all nodes in the current level to level_vals
+# We keep appending the level_vals sublist to a final list and return it eventually
+
 
 class Solution:
     # @param root, a tree node
@@ -40,9 +45,16 @@ class Solution:
             processing_queue , final_result = [root],[]
             # seed the queue above with root element
 
-            # ** Note : This is a conceptual Queue , the head of the queue could be either on the left or the right
+            # *********************** Note ***********************
+            # This is a conceptual Queue , the head of the queue could be either on the left or the right hand side
             # if the head of the queue is on the left - you dequeue by popping the element at index 0
             #                                        - you enqueue by appending to the right of the list
+
+            # if the head of the Queue is assumed to be on the right - you enqueue by inserting at index 0
+            #                                                        - you dequeue by popping the element on index(length of the list)
+            # *********************** Note ***********************
+
+
             while processing_queue:
                 level_vals , length = [],len(processing_queue)
                 for i in range(length):
