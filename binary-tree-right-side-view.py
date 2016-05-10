@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/binary-tree-right-side-view/
+
 # Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
 #
 # For example:
@@ -17,6 +19,10 @@
 #         self.left = None
 #         self.right = None
 
+# I think there might be a cleverer way to do this , but for now I have broken this down into two steps
+# Step 1 : Get a list of list of the tree's Level Order Traversal
+# Step 2 : Return the right most element of each sublist from the above superlist
+
 class Solution(object):
     def rightSideView(self, root):
         """
@@ -33,6 +39,8 @@ class Solution(object):
                 final_result.append(levelorder[i][len(levelorder[i])-1])
             return final_result
 
+
+    # This is exactly the same as the previously implemented level order traversal algorithm
     def levelOrderTraversal(self,root):
             if root is None:
                 return []
@@ -51,6 +59,5 @@ class Solution(object):
                         processing_queue.pop(0)
                     return_list.append(level_vals)
                 return return_list
-
 
 my_solution = Solution()
