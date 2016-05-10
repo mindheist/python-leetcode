@@ -17,8 +17,6 @@
 # ]
 # confused what "{1,#,2,3}" means? > read more on how binary tree is serialized on OJ.
 
-
-
 # Definition for a  binary tree node
 # class TreeNode:
 #     def __init__(self, x):
@@ -31,7 +29,7 @@ class Solution:
     # @return a list of lists of integers
     def levelOrder(self, root):
         # take care of the base condition ; the input could be an empty tree
-        if root is None : 
+        if root is None :
             return []
         # the difference between DFS and BFS is that - we use a Queue in BFS ( instead of a stack in DFS)
         processing_queue , final_result = [root],[]
@@ -47,4 +45,4 @@ class Solution:
                     processing_queue.append(node.right)
                 processing_queue.pop(0)
             final_result.append(level_vals)
-        return final_result 
+        return final_result
