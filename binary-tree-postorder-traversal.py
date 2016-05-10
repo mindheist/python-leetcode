@@ -44,4 +44,9 @@ class Solution(object):
                     stack_1.append(temp_node.left)
                 if temp_node.right:
                     stack_1.append(temp_node.right)
-            return stack_2[::-1]
+            #return stack_2[::-1]
+            # updated to the following solution , more BOSS than reversing the python list using [::-1]
+            while stack_2:
+                temp_element = stack_2.pop()
+                return_list.append(temp_element)
+            return return_list

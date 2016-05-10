@@ -57,7 +57,8 @@ class Solution:
 
                     # if the head of the Queue is assumed to be on the right - you enqueue by inserting at index 0
                     #                                                        - you dequeue by popping the element on index(length of the list)
-                    # *********************** Note ***********************
+                    # For our purposes , we are assuming the head is one the left ( first option above)
+                    #*********************** Note ***********************
                     node = processing_queue[0]           # take the first element out of the queue
                     level_vals.append(node.val)          # take the value of the node and copy it to level
                     if node.left:

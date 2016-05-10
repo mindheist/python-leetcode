@@ -52,7 +52,8 @@ class Solution:
 
             # if the head of the Queue is assumed to be on the right - you enqueue by inserting at index 0
             #                                                        - you dequeue by popping the element on index(length of the list)
-            # *********************** Note ***********************
+            # For our purposes , we are assuming the head is one the left ( first option above) 
+            #*********************** Note ***********************
             while processing_queue:
                 level_vals , length = [],len(processing_queue)
                 for i in range(length):
