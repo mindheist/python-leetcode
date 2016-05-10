@@ -37,7 +37,7 @@ class Solution:
     # @param root, a tree node
     # @return a list of lists of integers
     def levelOrder(self, root):
-        # take care of the base condition ; the input could be an empty tree
+        # take care of the base condition ; the input could be an empty tree , return [] in that case
         if root is None :
             return []
         # the difference between DFS and BFS is that - we use a Queue in BFS ( instead of a stack in DFS)
@@ -53,8 +53,6 @@ class Solution:
             # if the head of the Queue is assumed to be on the right - you enqueue by inserting at index 0
             #                                                        - you dequeue by popping the element on index(length of the list)
             # *********************** Note ***********************
-
-
             while processing_queue:
                 level_vals , length = [],len(processing_queue)
                 for i in range(length):

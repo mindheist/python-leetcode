@@ -49,7 +49,15 @@ class Solution(object):
                 while processing_queue:
                     level_vals = []
                     length = len(processing_queue)
-                    for i in xrange(len(processing_queue)):
+                    for i in xrange(len(processing_queue)):            
+                    # *********************** Note ***********************
+                    # This is a conceptual Queue , the head of the queue could be either on the left or the right hand side
+                    # if the head of the queue is on the left - you dequeue by popping the element at index 0
+                    #                                        - you enqueue by appending to the right of the list
+
+                    # if the head of the Queue is assumed to be on the right - you enqueue by inserting at index 0
+                    #                                                        - you dequeue by popping the element on index(length of the list)
+                    # *********************** Note ***********************
                         temp_node = processing_queue[0]
                         level_vals.append(temp_node.val)
                         if temp_node.left:
