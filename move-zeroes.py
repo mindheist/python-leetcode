@@ -12,21 +12,16 @@
 # https://xkcd.com/353/
 # Unlike other problems though , I dont understand if this was intented to be done a different way , probably do that remove by hand.
 
-
-
 class Solution(object):
     def moveZeroes(self, nums):
         """
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
-        #print nums
         for i in xrange(len(nums)):
-            #print nums[i]
             if nums[i]==0:
                 nums.remove(nums[i])
                 nums.append(0)
-        # print nums
 
 
 my_solution = Solution()
