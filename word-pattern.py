@@ -12,7 +12,9 @@
 # Notes:
 # You may assume pattern contains only lowercase letters, and str contains lowercase letters separated by a single space.
 
+# The idea here is to use a dictionary , mapping characters from the pattern to the words in the string
 
+import unittest
 class Solution(object):
     def wordPattern(self, pattern, str):
         """
@@ -38,8 +40,43 @@ class Solution(object):
                         my_dict[pattern[i]] = str.split()[i]
             return True
 
+class TestWordPattern(unittest.TestCase):
 
-my_solution = Solution()
-print my_solution.wordPattern("abba","dog cat cat sheep")
-print my_solution.wordPattern("abba","dog cat cat dog")
-print my_solution.wordPattern("abba","dog dog dog dog")
+    my_solution = Solution()
+    def test_default_pass(self):
+        self.assertTrue(self.my_solution.wordPattern("abba","dog cat cat dog"))
+
+    def test_default_fail(self):
+        self.assertFalse(self.my_solution.wordPattern("abba","dog cat cat fish"))
+
+    def test_default_fail(self):
+        self.assertFalse(self.my_solution.wordPattern("aaaa","dog cat cat dog"))
+
+    def test_default_fail(self):
+        self.assertFalse(self.my_solution.wordPattern("abba","dog dog dog dog"))
+
+    def test_not_a_pattern(self):
+        self.assertFalse(self.my_solution.wordPattern("abba","dog cat cat sheep"))
+
+    def test_empty_pattern(self):
+        self.assertFalse(self.my_solution.wordPattern("","dog dog dog dog"))
+
+    def test_empty_string(self):
+        self.assertFalse(self.my_solution.wordPattern("abba",""))
+
+    def test_empty_pattern_string(self):
+        self.assertTrue(self.my_solution.wordPattern("",""))
+
+    def test_pattern_longer_than_string(self):
+        self.assertFalse(self.my_solution.wordPattern("abbba","cat dog dog dog"))
+
+    def test_string_longer_than_pattern(self):
+        self.assertFalse(self.my_solution.wordPattern("abba","cat dog"))
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+#print my_solution.wordPattern("abba","dog cat cat sheep")
+#print my_solution.wordPattern("abba","dog cat cat dog")
+#print my_solution.wordPattern("abba","dog dog dog dog")
