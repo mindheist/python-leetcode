@@ -23,6 +23,10 @@
 #
 # Subscribe to see which companies asked this question
 
+
+# Note this is a really overloaded question - just because the input can be do diverse
+# This also makes it a good candidate to write a bunch of test cases
+import unittest
 class Solution(object):
     def myAtoi(self, str):
         """
@@ -85,7 +89,42 @@ class Solution(object):
         else:
             return unparsed_result
 
-my_solution = Solution()
+
+class Testatoi(unittest.TestCase):
+    my_solution = Solution()
+
+    def test_basic_input_one(self):
+        self.assertEqual(self.my_solution.myAtoi("42"),42)
+
+    def test_input_zero(self):
+        self.assertEqual(self.my_solution.myAtoi("0"),0)
+
+    def test_input_with_plus_sign(self):
+        self.assertEqual(self.my_solution.myAtoi("+111"),111)
+
+    def test_input_with_negative_sign(self):
+        self.assertEqual(self.my_solution.myAtoi("-10"),-10)
+
+    def test_input_with_leading_spaces(self):
+        self.assertEqual(self.my_solution.myAtoi("         200"),200)
+
+    def test_positive_integer_with_leading_spaces(self):
+        self.assertEqual(self.my_solution.myAtoi("       +200"),200)
+
+    def test_negative_integer_with_leading_spaces(self):
+        self.assertEqual(self.my_solution.myAtoi("       -200"),-200)
+
+    def test_positive_integer_with_leading_zeros(self):
+        self.assertEqual(self.my_solution.myAtoi("00000100"),100)
+
+    def test_positive_integer_with_leading_zeros_and_spaces(self):
+        self.assertEqual(self.my_solution.myAtoi("       00000100"),100)
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+
 #print my_solution.myAtoi('     0001')
 
 # for i in xrange(10):
@@ -97,16 +136,8 @@ my_solution = Solution()
 #print my_solution.myAtoi('+123a23')
 #print my_solution.myAtoi("2147483648")
 #print my_solution.myAtoi("-2000000000000")
-print my_solution.myAtoi("-2147483649")
+#print my_solution.myAtoi("-2147483649")
 #print my_solution.myAtoi("2147483649")
 #print my_solution.myAtoi("2147483649293892")
 # print my_solution.myAtoi('-1')
 # print my_solution.myAtoi('-+1')
-
-
-
-# print my_solution.myAtoi("21")
-# print my_solution.myAtoi("345")
-# print my_solution.myAtoi("4232")
-# print my_solution.myAtoi("+21")
-# print my_solution.myAtoi("-21")
