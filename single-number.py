@@ -1,9 +1,24 @@
+# https://leetcode.com/problems/single-number/
+#
+# Given an array of integers, every element appears twice except for one. Find that single one.
+#
+# Note:
+# Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+
+# ********** NOTE *************************
+# Looks like l33tcode is not testing for empty string ; follow up
+
+
+import unittest
+
 class Solution(object):
     def singleNumber(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
+        if nums == []:
+            return None
         if len(nums)==1:
             return nums[0]
         else:
@@ -17,7 +32,24 @@ class Solution(object):
                     return nums[i]
             return nums[len(nums)-1]
 
+class TestSingleNumber(unittest.TestCase):
+    my_solution = Solution()
 
-my_solution = Solution()
-print my_solution.singleNumber([17,12,5,-6,12,4,17,-5,2,-3,2,4,5,16,-3,-4,15,15,-4,-5,-6])
-print my_solution.singleNumber([1,1,2,2,3])
+    def test_small_array_all_positive(self):
+        self.assertEqual(self.my_solution.singleNumber([1,2,1,2,3]),3)
+
+    def test_small_array_mixed(self):
+        self.assertEqual(self.my_solution.singleNumber([-1,-2,-1,-2,-3]),-3)
+
+    def test_array_of_length_one(self):
+        self.assertEqual(self.my_solution.singleNumber([1]),1)
+
+    def test_empty_array(self):
+        self.assertEqual(self.my_solution.singleNumber([]),None)
+
+if __name__ == "__main__":
+    unittest.main()
+
+
+#print my_solution.singleNumber([17,12,5,-6,12,4,17,-5,2,-3,2,4,5,16,-3,-4,15,15,-4,-5,-6])
+#print my_solution.singleNumber([1,1,2,2,3])
