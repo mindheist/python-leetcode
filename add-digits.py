@@ -25,8 +25,23 @@ class Solution(object):
 class TestAddDigits(unittest.TestCase):
     my_solution = Solution()
 
+    def test_for_zero(self):
+        self.assertEqual(self.my_solution.addDigits(0),0)
+
+    def test_single_digit_number(self):
+        self.assertEqual(self.my_solution.addDigits(7),7)
+
     def test_two_digit_number(self):
         self.assertEqual(self.my_solution.addDigits(15),6)
+
+    def test_three_digit_number(self):
+        self.assertEqual(self.my_solution.addDigits(100),1)
+
+    def test_three_digit_number(self):
+        self.assertEqual(self.my_solution.addDigits(111),3)
+
+    def test_large_number(self):
+        self.assertEqual(self.my_solution.addDigits(1111111111),1)
 
 
 if __name__ == "__main__":
