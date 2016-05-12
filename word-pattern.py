@@ -79,12 +79,5 @@ class TestWordPattern(unittest.TestCase):
     def test_long_pattern_and_string_fail(self):
         self.assertFalse(self.my_solution.wordPattern("abcdefghijklmnopqrstuvwxy","abbess abbey abbot abbreviate abbreviation abdicate abdomen abduct abeam abecedarian abed aberration abet abeyance abhor abhorrent abide ability abject abjure ablate ablative ablaze able abloom ablution"))
 
-
-
 if __name__ == '__main__':
     unittest.main()
-
-
-#print my_solution.wordPattern("abba","dog cat cat sheep")
-#print my_solution.wordPattern("abba","dog cat cat dog")
-#print my_solution.wordPattern("abba","dog dog dog dog")

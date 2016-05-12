@@ -46,7 +46,3 @@ class TestAddDigits(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
-my_solution = Solution()
-print my_solution.addDigits(157)
