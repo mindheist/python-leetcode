@@ -10,8 +10,9 @@
 # Thinking about this again , I guess I might have taken a short cut here .
 # I shouldn't have used string reverse here , and should have used a multiply logic.
 
-
+import unittest
 import sys
+import math
 class Solution:
     # @return an integer
     def reverse(self, x):
@@ -30,3 +31,25 @@ class Solution:
     	        return rev_int
     	    else:
     	        return 0
+
+class TestReverseInteger(unittest.TestCase):
+    my_solution = Solution()
+
+    def test_reverse_positive_integer(self):
+        self.assertEqual(self.my_solution.reverse(123),321)
+
+    def test_reverse_negative_integer(self):
+        self.assertEqual(self.my_solution.reverse(-123),-321)
+
+    def test_reverse_zero(self):
+        self.assertEqual(self.my_solution.reverse(0),0)
+
+    def test_overflow_max(self):
+        self.assertEqual(self.my_solution.reverse(9463847412),0)
+        # the reversed interger overflows the Maximum
+
+
+
+
+if __name__ == "__main__":
+    unittest.main()
