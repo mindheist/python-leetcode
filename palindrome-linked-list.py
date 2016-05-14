@@ -51,7 +51,6 @@ class Solution(object):
                 current = current.next
             my_stack.append(current.val)
             #print my_stack
-
             current = self.head
             # print current.val
             while current.next:
@@ -78,6 +77,14 @@ class TestPalindromeLinkedList(unittest.TestCase):
         B.next = C
         C.next = D
         D.next = E
+        self.assertTrue(self.my_solution.isPalindrome(A))
+
+    def test_empty_list(self):
+        X = ListNode("")
+        self.assertTrue(self.my_solution.isPalindrome(X))
+
+    def test_list_of_length_one(self):
+        A = ListNode("A")
         self.assertTrue(self.my_solution.isPalindrome(A))
 
 if __name__ == "__main__":
