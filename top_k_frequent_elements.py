@@ -4,7 +4,11 @@
 # For example,
 # Given [1,1,1,2,2,3] and k = 2, return [1,2].
 #
-# Note:
+#
+
+# I m guessing I might be using too many inbuild functions
+# In a way ,thats the power of python - but I'll come back and implement some of the inbuilt functions
+# used here
 
 
 from collections import Counter
