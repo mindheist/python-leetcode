@@ -69,7 +69,7 @@ class Solution(object):
                     processing_queue.pop(0)
                 final_results.append(level_vals)
 
-
+            #  go through the final_results again and link them sideways
             for i in xrange(len(final_results)):
                 if len(final_results[i])==1:
                     continue
