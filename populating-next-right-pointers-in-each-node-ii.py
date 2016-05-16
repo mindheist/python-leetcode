@@ -62,3 +62,5 @@ class Solution(object):
                 else:
                     for j in xrange(len(final_results[i])-1):
                         final_results[i][j].next = final_results[i][j+1]
+
+# Cant have tests for this solution until I figure out how to serialize the tree
