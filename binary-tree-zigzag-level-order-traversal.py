@@ -60,3 +60,49 @@ class Solution(object):
                     processing_queue.pop(0)
                 results.append(level_vals)
             return results
+
+class Solution(object):
+    def zigzagLevelOrder(self, root):
+        self.root = root
+        if self.root == None:
+            return []
+        else:
+            processing_queue , results = [self.root],[]
+            order = "even"
+            while processing_queue:
+                if order == "odd":
+                    level_vals , length = [],len(processing_queue)
+                    for i in xrange(length):
+                        temp_node = processing_queue[0]
+                        level_vals.append(temp_node.val)
+                        if temp_node.left:
+                            processing_queue.append(temp_node.left)
+                        if temp_node.right:
+                            processing_queue.append(temp_node.right)
+                        processing_queue.pop(0)
+                    results.append(level_vals)
+                    order = "even"
+                if order == "even":
+                    level_vals , length = [],len(processing_queue)
+                    for i in xrange(length):
+                        temp_node = processing_queue[0]
+                        level_vals.append(temp_node.val)
+                        if temp_node.right:
+                            processing_queue.append(temp_node.right)
+                        if temp_node.left:
+                            processing_queue.append(temp_node.left)
+                        processing_queue.pop(0)
+                    results.append(level_vals)
+                    order = "odd"
+            if results[len(results)-1]==[]:
+                return results[:-1:]
+            else:
+                return results
+                
+# Fails in the following test - should understand serialization more to figure this out.
+# Input:
+# [1,2,3,4,null,null,5]
+# Output:
+# [[1],[3,2],[5,4]]
+# Expected:
+# [[1],[3,2],[4,5]]
