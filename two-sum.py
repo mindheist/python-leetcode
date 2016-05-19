@@ -12,7 +12,7 @@
 # UPDATE (2016/2/13):
 # The return format had been changed to zero-based indices. Please read the above updated description carefully.
 
-
+import unittest
 class Solution(object):
     def twoSum(self, nums, target):
         """
@@ -36,9 +36,17 @@ class Solution(object):
         # step 3 : Return [] if no such pair is found.
         return []
 
-my_solution = Solution()
+class TestTwoSum(unittest.TestCase):
+    my_solution = Solution()
+
+    def test_default_pass(self):
+        self.assertEquals(self.my_solution.twoSum([2, 7, 11, 15],9),[0,1])
+
+if __name__ == "__main__":
+    unittest.main()
+
 # test_!
-print my_solution.twoSum([2, 7, 11, 15],9)
-print my_solution.twoSum([2, 7, 11, 15],26)
-print my_solution.twoSum([3,2,4],6)
-print my_solution.twoSum([3,2,4],8)
+#print my_solution.twoSum([2, 7, 11, 15],9)
+# print my_solution.twoSum([2, 7, 11, 15],26)
+# print my_solution.twoSum([3,2,4],6)
+# print my_solution.twoSum([3,2,4],8)
