@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/implement-queue-using-stacks/
 # Implement the following operations of a queue using stacks.
-# 
+#
 # push(x) -- Push element x to the back of queue.
 # pop() -- Removes the element from in front of queue.
 # peek() -- Get the front element.
@@ -10,7 +10,7 @@
 # Depending on your language, stack may not be supported natively. You may simulate a stack by using a list or deque (double-ended queue), as long as you use only standard operations of a stack.
 # You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).
 
-
+import unittest
 class Queue(object):
     def __init__(self):
         """
@@ -60,12 +60,20 @@ class Queue(object):
         return False
         #return self.main_stack[len(self.main_stack)-1] ==0
 
+class TestQueueUsingStacks(unittest.TestCase):
+    my_queue = Queue()
 
-my_solution = Queue()
-my_solution.push(9)
-my_solution.push(10)
-my_solution.push(12)
-print my_solution.peek()
-print my_solution.pop()
-print my_solution.peek()
-print my_solution.pop()
+    def test_empty_function(self):
+        self.assertTrue(self.my_queue.empty())
+
+    def test_peek_function(self):
+        self.my_queue.push(6)
+        self.assertEquals(self.my_queue.peek(),6)
+
+    def test_pop_function(self):
+        self.assertEquals(self.my_queue.pop(),6)
+
+
+
+if __name__ == "__main__":
+    unittest.main()
