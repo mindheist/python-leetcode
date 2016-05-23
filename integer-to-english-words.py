@@ -80,7 +80,12 @@ class Solution(object):
             first_part = int_list[0]
             second_part = (str(int_list[1])+str(int_list[2])+str(int_list[3]))
             third_part = (str(int_list[4])+str(int_list[5])+str(int_list[6]))
-            return self.lookup_dictionary_0[first_part] + " Million " + self._three_digit_conversion(second_part) + " Thousand " + self._three_digit_conversion(third_part)
+            if second_part == "000" and third_part == "000":
+                return self.lookup_dictionary_0[first_part] + " Million"
+            elif second_part == "000":
+                return self.lookup_dictionary_0[first_part] + " Million " + self._three_digit_conversion(third_part)
+            else:
+                return self.lookup_dictionary_0[first_part] + " Million " + self._three_digit_conversion(second_part) + " Thousand " + self._three_digit_conversion(third_part)
         elif len(str(self.num)) == 10:
             int_list = map(int,str(self.num))
             first_part = int_list[0]
@@ -98,16 +103,16 @@ class Solution(object):
         last_two = int(str(int_list[1])+str(int_list[2]))
         if int_list[2] ==0 and int_list[1]==0 and int_list[0]==0:
             return ""
-        elif int_list[2] ==0 and int_list[1]==0:
+        elif int_list[2] ==0 and int_list[1]==0 and int_list[0] !=0:
             return self.lookup_dictionary_0[int_list[0]] + " Hundred"
+        elif int_list[0]==0:
+            return self.lookup_dictionary_1[int_list[1]] + " "+ self.lookup_dictionary_0[int_list[2]]
         elif last_two in self.lookup_dictionary_10_100:
             return self.lookup_dictionary_0[int_list[0]] + " Hundred " + self.lookup_dictionary_10_100[last_two]
         elif last_two in self.lookup_dictionary_11_19:
             return self.lookup_dictionary_0[int_list[0]] + " Hundred " + self.lookup_dictionary_11_19[last_two]
         elif int_list[1]==0:
             return self.lookup_dictionary_0[int_list[0]] + " Hundred" + " " + self.lookup_dictionary_0[int_list[2]]
-        elif int_list[0]==0:
-            return self.lookup_dictionary_1[int_list[1]] + " "+ self.lookup_dictionary_0[int_list[2]]
         else:
             return self.lookup_dictionary_0[int_list[0]] + " Hundred" + " " + self.lookup_dictionary_1[int_list[1]] + " "+ self.lookup_dictionary_0[int_list[2]]
 
