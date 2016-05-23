@@ -52,17 +52,29 @@ class Solution(object):
                 int_list = map(int,str(self.num))
                 first_two_digits = int(str(int_list[0]) + str(int_list[1]))
                 last_three_digits = str(int_list[2]) + str(int_list[3]) + str(int_list[4])
-                if first_two_digits in self.lookup_dictionary_11_19:
-                    return self.lookup_dictionary_11_19[first_two_digits] + " Thousand " + self._three_digit_conversion(last_three_digits)
-                elif first_two_digits in self.lookup_dictionary_10_100:
-                    return self.lookup_dictionary_10_100[first_two_digits] + " Thousand " + self._three_digit_conversion(last_three_digits)
+                if int(last_three_digits) == 0 :
+                    if first_two_digits in self.lookup_dictionary_11_19:
+                        return self.lookup_dictionary_11_19[first_two_digits] + " Thousand"
+                    elif first_two_digits in self.lookup_dictionary_10_100:
+                        return self.lookup_dictionary_10_100[first_two_digits] + " Thousand"
+                else:
+                    if first_two_digits in self.lookup_dictionary_11_19:
+                        return self.lookup_dictionary_11_19[first_two_digits] + " Thousand " + self._three_digit_conversion(last_three_digits)
+                    elif first_two_digits in self.lookup_dictionary_10_100:
+                        return self.lookup_dictionary_10_100[first_two_digits] + " Thousand " + self._three_digit_conversion(last_three_digits)
+                    else:
+                        return self.lookup_dictionary_1[int_list[0]] + " " + self.lookup_dictionary_0[int_list[1]] + " Thousand " + self._three_digit_conversion(last_three_digits)
 
             except KeyError:
                 return "zero"
         elif len(str(self.num)) == 6:
             int_list = map(int,str(self.num))
-            first_part = int_list[0]
-            second_part = (str(int_list[1])+str(int_list[2])+str(int_list[3]))
+            first_part = (str(int_list[0])+str(int_list[1])+str(int_list[2]))
+            second_part = (str(int_list[3])+str(int_list[4])+str(int_list[5]))
+            if second_part == "000":
+                return self._three_digit_conversion(first_part) + " Thousand"
+            else:
+                return self._three_digit_conversion(first_part) + " Thousand " + self._three_digit_conversion(second_part)
         elif len(str(self.num)) == 7:
             int_list = map(int,str(self.num))
             first_part = int_list[0]
