@@ -6,9 +6,11 @@ class Solution(object):
         """
         self.num = num
         self.lookup_dictionary_0 = {0:"Zero", 1:"One",2:"Two",3:"Three",4:"Four",5:"Five",6:"Six",7:"Seven",8:"Eight",9:"Nine"}
+
         self.lookup_dictionary_1 = {0:"", 1:"Ten",2:"Twenty",3:"Thirty",4:"Forty",5:"Fifty",6:"Sixty",7:"Seventy",8:"Eighty",9:"Ninety"}
         self.lookup_dictionary_11_19 = {10 :"Ten",11 :"Eleven",12:"Twelve",13:"Thirteen",14:"Fourteen",15:"Fifteen",16:"Sixteen",17:"Seventeen",18:"Eighteen",19:"Nineteen"}
         self.lookup_dictionary_10_100 = {0:"", 10:"Ten",20:"Twenty",30:"Thirty",40:"Forty",50:"Fifty",60:"Sixty",70:"Seventy",80:"Eighty",90:"Ninety"}
+
 
         # self.lookup_dictionary_10_19 = {10:"Ten" ,11 :"Eleven",12:"Twelve",13:"Thirteen",14:"Fourteen",15:"Fifteen",16:"Sixteen",17:"Seventeen",18:"Eighteen",19:"Nineteen",20:"Twenty",30:"Thirty",40:"Forty",50:"Fifty", \
         # 60:"Sixty",70:"Seventy",80:"Eighty",90:"Ninety"}
@@ -26,12 +28,25 @@ class Solution(object):
                     return self.lookup_dictionary_10_100[self.num]
             else:
                 return "zero"
-        elif len(str(self.num)) == 3 :
+        elif len(str(self.num)) == 3:
             return self._three_digit_conversion(self.num)
         elif len(str(self.num)) == 4:
             int_list = map(int,str(self.num))
             last_three_digits = str(int_list[1]) + str(int_list[2]) + str(int_list[3])
-            return self.lookup_dictionary_0[int_list[0]] + " Thousand " + self._three_digit_conversion(last_three_digits)
+            if int(last_three_digits) == 0:
+                return self.lookup_dictionary_0[int_list[0]] + " Thousand"
+            elif len((str(int(last_three_digits))))==1:
+                return self.lookup_dictionary_0[int_list[0]] + " Thousand" + " " + self.lookup_dictionary_0[int(last_three_digits)]
+            elif len((str(int(last_three_digits))))==2:
+                if int(last_three_digits) in self.lookup_dictionary_11_19:
+                    return self.lookup_dictionary_0[int_list[0]] + " Thousand" + " " + self.lookup_dictionary_11_19[int(last_three_digits)]
+                elif int(last_three_digits) in self.lookup_dictionary_10_100:
+                    return self.lookup_dictionary_0[int_list[0]] + " Thousand" + " " + self.lookup_dictionary_10_100[int(last_three_digits)]
+                else:
+                    return self.lookup_dictionary_0[int_list[0]] + " Thousand " + self._three_digit_conversion(last_three_digits)
+            else:
+                    return self.lookup_dictionary_0[int_list[0]] + " Thousand " + self._three_digit_conversion(last_three_digits)
+
         elif len(str(self.num)) == 5:
             try:
                 int_list = map(int,str(self.num))
@@ -69,7 +84,9 @@ class Solution(object):
         self.three_digits = three_digits
         int_list = map(int,str(self.three_digits))
         last_two = int(str(int_list[1])+str(int_list[2]))
-        if int_list[2] ==0 and int_list[1]==0:
+        if int_list[2] ==0 and int_list[1]==0 and int_list[0]==0:
+            return ""
+        elif int_list[2] ==0 and int_list[1]==0:
             return self.lookup_dictionary_0[int_list[0]] + " Hundred"
         elif last_two in self.lookup_dictionary_10_100:
             return self.lookup_dictionary_0[int_list[0]] + " Hundred " + self.lookup_dictionary_10_100[last_two]
@@ -77,6 +94,8 @@ class Solution(object):
             return self.lookup_dictionary_0[int_list[0]] + " Hundred " + self.lookup_dictionary_11_19[last_two]
         elif int_list[1]==0:
             return self.lookup_dictionary_0[int_list[0]] + " Hundred" + " " + self.lookup_dictionary_0[int_list[2]]
+        elif int_list[0]==0:
+            return self.lookup_dictionary_1[int_list[1]] + " "+ self.lookup_dictionary_0[int_list[2]]
         else:
             return self.lookup_dictionary_0[int_list[0]] + " Hundred" + " " + self.lookup_dictionary_1[int_list[1]] + " "+ self.lookup_dictionary_0[int_list[2]]
 
