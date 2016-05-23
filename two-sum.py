@@ -42,6 +42,13 @@ class TestTwoSum(unittest.TestCase):
     def test_default_pass(self):
         self.assertEquals(self.my_solution.twoSum([2, 7, 11, 15],9),[0,1])
 
+    def test_empty_list(self):
+        self.assertEquals(self.my_solution.twoSum([],15),[])
+
+    def test_no_valid_pair(self):
+        self.assertEquals(self.my_solution.twoSum([2, 7, 11, 15],100),[])
+
+
 if __name__ == "__main__":
     unittest.main()
 

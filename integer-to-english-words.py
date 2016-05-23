@@ -1,3 +1,5 @@
+# This passes 559/601 tests. May be I should try the divion solution! will try and finish this though later.
+
 class Solution(object):
     def numberToWords(self, num):
         """
