@@ -9,7 +9,7 @@
 # Given s = "leetcode", return "leotcede".
 #
 # Subscribe to see which companies asked this question
-
+import unittest
 class Solution(object):
     def reverseVowels(self, s):
         """
@@ -33,3 +33,45 @@ class Solution(object):
                 else:
                     continue
             return ''.join(s)
+
+class TestReverseVowels(unittest.TestCase):
+    my_solution = Solution()
+
+    def test_simple_string(self):
+        self.assertEquals(self.my_solution.reverseVowels("hello"),"holle")
+
+    def test_capital_vowels(self):
+        self.assertEquals(self.my_solution.reverseVowels("aA"),"Aa")
+
+    def test_empty_string(self):
+        self.assertEquals(self.my_solution.reverseVowels(""),"")
+
+    def test_all_vowels_string(self):
+        self.assertEquals(self.my_solution.reverseVowels("aeiouAEIOU"),"UOIEAuoiea")
+
+    def test_no_vowels_string(self):
+        self.assertEquals(self.my_solution.reverseVowels("bcdfghjklmnpqrstvwxyz"),"bcdfghjklmnpqrstvwxyz")
+
+    def test_all_spaces_string(self):
+        self.assertEquals(self.my_solution.reverseVowels("               "),"               ")
+
+    def test_no_vowels_with_leading_spaces_string(self):
+        self.assertEquals(self.my_solution.reverseVowels("    bcdfghjklmnpqrstvwxyz"),"    bcdfghjklmnpqrstvwxyz")
+
+    def test_no_vowels_with_trailing_spaces_string(self):
+        self.assertEquals(self.my_solution.reverseVowels("bcdfghjklmnpqrstvwxyz     "),"bcdfghjklmnpqrstvwxyz     ")
+
+    def test_no_vowels_with_leading_and_trailing_spaces_string(self):
+        self.assertEquals(self.my_solution.reverseVowels("    bcdfghjklmnpqrstvwxyz    "),"    bcdfghjklmnpqrstvwxyz    ")
+
+    def test_all_vowels_with_leading_spaces(self):
+        self.assertEquals(self.my_solution.reverseVowels("     aeiouAEIOU"),"     UOIEAuoiea")
+
+    def test_all_vowels_with_trailing_spaces(self):
+        self.assertEquals(self.my_solution.reverseVowels("aeiouAEIOU     "),"UOIEAuoiea     ")
+
+    def test_all_vowels_with_leading_and_trailing_spaces(self):
+        self.assertEquals(self.my_solution.reverseVowels("     aeiouAEIOU     "),"     UOIEAuoiea     ")
+
+if __name__ == "__main__":
+    unittest.main()
