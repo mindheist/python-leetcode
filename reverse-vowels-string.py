@@ -73,5 +73,11 @@ class TestReverseVowels(unittest.TestCase):
     def test_all_vowels_with_leading_and_trailing_spaces(self):
         self.assertEquals(self.my_solution.reverseVowels("     aeiouAEIOU     "),"     UOIEAuoiea     ")
 
+    def test_no_vowel_string_alphanumeric(self):
+        self.assertEquals(self.my_solution.reverseVowels("123456789765432123456789"),"123456789765432123456789")
+
+    def test_no_vowels_special_characters(self):
+        self.assertEquals(self.my_solution.reverseVowels("!@#$%^&*(*&^%$#@#$%^%$#@"),"!@#$%^&*(*&^%$#@#$%^%$#@")
+
 if __name__ == "__main__":
     unittest.main()
