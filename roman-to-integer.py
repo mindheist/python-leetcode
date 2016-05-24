@@ -3,7 +3,6 @@
 
 # Input is guaranteed to be within the range from 1 to 3999.
 
-
 # Solution
 # ========
 # (1) The idea is fairly straight forward - Use a dictionary of Key:values ( in which the roman numerals are the Keys and the values are the integer equivalents
@@ -16,6 +15,7 @@
 
 # (5) In case the onder decreases , subtract that value from the result (ie) ex: IV - while parsing from Right to Left I < V , subtract the value of I from V
 
+import unittest
 class Solution:
     # @return an integer
     def romanToInt(self, s):
@@ -41,9 +41,35 @@ class Solution:
 			previous_value = romans[s[i]]
 		return running_value
 
-my_solution = Solution()
+class TestRomanToInteger(unittest.TestCase):
+    my_solution = Solution()
+
+    def test_roman_1(self):
+        self.assertEquals(self.my_solution.romanToInt('I'),1)
+
+    def test_roman_V(self):
+        self.assertEquals(self.my_solution.romanToInt('V'),5)
+
+    def test_roman_X(self):
+        self.assertEquals(self.my_solution.romanToInt('X'),10)
+
+    def test_roman_L(self):
+        self.assertEquals(self.my_solution.romanToInt('L'),50)
+
+    def test_roman_C(self):
+        self.assertEquals(self.my_solution.romanToInt('C'),100)
+
+    def test_roman_D(self):
+        self.assertEquals(self.my_solution.romanToInt('D'),500)
+
+    def test_roman_M(self):
+        self.assertEquals(self.my_solution.romanToInt('M'),1000)
+
+if __name__ == "__main__":
+    unittest.main()
+
 # print "XXX =" , my_solution.romanToInt('XXX')
 # print "XXXV =" , my_solution.romanToInt('XXXV')
 # print "XL = " , my_solution.romanToInt('XL')
-print "MCMXCVI = " , my_solution.romanToInt('MCMXCVI')
-print my_solution.romanToInt('XLIX')
+# print "MCMXCVI = " , my_solution.romanToInt('MCMXCVI')
+# print my_solution.romanToInt('XLIX')

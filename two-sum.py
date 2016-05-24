@@ -48,6 +48,8 @@ class TestTwoSum(unittest.TestCase):
     def test_no_valid_pair(self):
         self.assertEquals(self.my_solution.twoSum([2, 7, 11, 15],100),[])
 
+    def test_negative_integers(self):
+        self.assertEquals(self.my_solution.twoSum([-1,-2,10,15,557,23,45,78],-3),[0,1])
 
 if __name__ == "__main__":
     unittest.main()

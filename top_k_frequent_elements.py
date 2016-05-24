@@ -48,9 +48,5 @@ class TestTopkFrequent(unittest.TestCase):
         self.assertEquals(self.my_solution.topKFrequent(nums,3),[1,2,3])
 
 
-
-
-
-
 if __name__ == "__main__":
     unittest.main()

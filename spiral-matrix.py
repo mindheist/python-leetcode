@@ -14,7 +14,7 @@
 
 # Solution video : https://www.youtube.com/watch?v=siKFOI8PNKM
 
-
+import unittest
 class Solution(object):
     def spiralOrder(self, matrix):
         """
@@ -70,14 +70,26 @@ class Solution(object):
                     print "4",result
             return result
 
+class TestSpiralMatrix(unittest.TestCase):
+    my_solution = Solution()
 
-matrix = [[ 1, 2, 3 ],[ 4, 5, 6 ],[ 7, 8, 9 ]]
-matrix_2 =[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
-matrix_3 = [[2,3]]
-matrix_4 = [[2,5,8],[4,0,-1]]
-my_solution = Solution()
-#print my_solution.spiralOrder(matrix)
-#print my_solution.spiralOrder(matrix_2)
+    def test_all_zero_matrix_3X3_(self):
+        self.assertEquals(self.my_solution.spiralOrder([[ 0, 0, 0 ],[ 0, 0, 0 ],[ 0, 0, 0 ]]),[0,0,0,0,0,0,0,0,0])
 
-print my_solution.spiralOrder(matrix)
-#print rows,columns
+    def test_3_X_3_matrix(self):
+        self.assertEquals(self.my_solution.spiralOrder([[ 1, 2, 3 ],[ 4, 5, 6 ],[ 7, 8, 9 ]]),[1,2,3,6,9,8,7,4,5])
+
+    def test_4_X_4_matrix(self):
+        self.assertEquals(self.my_solution.spiralOrder([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]),[1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10])
+
+    def test_1_X_2_matrix(self):
+        self.assertEquals(self.my_solution.spiralOrder([[2,3]]),[2,3])
+
+    def test_3_X_2_matrix(self):
+        self.assertEquals(self.my_solution.spiralOrder([[2,5,8],[4,0,-1]]),[2,5,8,-1,0,4])
+
+    def test_empty_matrix(self):
+        self.assertEquals(self.my_solution.spiralOrder([]),[])
+
+if __name__ == "__main__":
+    unittest.main()

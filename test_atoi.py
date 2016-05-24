@@ -124,12 +124,6 @@ if __name__ == '__main__':
     unittest.main()
 
 
-
-#print my_solution.myAtoi('     0001')
-
-# for i in xrange(10):
-#     print my_solution.myAtoi(str(i))
-
 # print my_solution.myAtoi(')')
 # print my_solution.myAtoi('+')
 
@@ -139,5 +133,4 @@ if __name__ == '__main__':
 #print my_solution.myAtoi("-2147483649")
 #print my_solution.myAtoi("2147483649")
 #print my_solution.myAtoi("2147483649293892")
-# print my_solution.myAtoi('-1')
 # print my_solution.myAtoi('-+1')
