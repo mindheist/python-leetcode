@@ -11,6 +11,8 @@
 # Depending on your language, queue may not be supported natively. You may simulate a queue by using a list or deque (double-ended queue), as long as you use only standard operations of a queue.
 # You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack)
 
+import unittest
+
 class Queue:
     def __init__(self):
         self.my_queue = []
@@ -92,14 +94,15 @@ class Stack(object):
     def print_stack(self):
         return self.my_queue.print_queue()
 
+class TestStackUsingQueues(unittest.TestCase):
+    my_stack = Stack()
 
-my_stack = Stack()
-my_stack.push(5)
-print my_stack.print_stack()
-my_stack.push(15)
-print my_stack.print_stack()
-my_stack.push(60)
-print my_stack.print_stack()
-my_stack.push(100)
-print my_stack.print_stack()
-print my_stack.top()
+    def test_isEmpty(self):
+        self.assertTrue(self.my_stack.empty())
+
+    def test_top(self):
+        self.my_stack.push(5)
+        self.assertEquals(self.my_stack.top(),5)
+
+if __name__ == "__main__":
+    unittest.main()
