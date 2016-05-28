@@ -53,9 +53,3 @@ class TestTwoSum(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-# test_!
-#print my_solution.twoSum([2, 7, 11, 15],9)
-# print my_solution.twoSum([2, 7, 11, 15],26)
-# print my_solution.twoSum([3,2,4],6)
-# print my_solution.twoSum([3,2,4],8)
