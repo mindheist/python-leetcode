@@ -33,7 +33,7 @@ class Solution(object):
         :type str: str
         :rtype: int
         """
-        print str
+        #print str
         sys_max =  2147483647
         sys_min = -2147483649
         result = 0
@@ -55,7 +55,7 @@ class Solution(object):
             else:
                 if str[0] == '+':
                     #print "in here"
-                    print str,len(str)
+                    #print str,len(str)
                     for i in xrange(1,len(str)):
                         if ord(str[i]) in range(48,58):
                             result = result * 10 + (ord(str[i]) - ord('0'))
@@ -63,13 +63,13 @@ class Solution(object):
                             return self.parse_result(result,"positive")
                     return self.parse_result(result,"positive")
                 elif str[0] == '-':
-                    print str,len(str)
+                    #print str,len(str)
                     for i in xrange(1,len(str)):
                         if ord(str[i]) in range(48,58):
                             result = result * 10 + (ord(str[i]) - ord('0'))
-                            print "i=",i,"result",result
+                            #print "i=",i,"result",result
                         else:
-                            print result
+                            #print result
                             return self.parse_result(result,"negative") * -1
                     return self.parse_result(result,"negative") * -1
                 else:
@@ -120,17 +120,39 @@ class Testatoi(unittest.TestCase):
     def test_positive_integer_with_leading_zeros_and_spaces(self):
         self.assertEqual(self.my_solution.myAtoi("       00000100"),100)
 
+    def test_greater_that_system_max(self):
+        self.assertEqual(self.my_solution.myAtoi("2147483650"),2147483647)
+
+    def test_exactly_system_max(self):
+        self.assertEqual(self.my_solution.myAtoi("2147483647"),2147483647)
+
+    def test_greater_than_system_min(self):
+        self.assertEqual(self.my_solution.myAtoi("-2147483650"),-2147483648)
+
+    def test_exactly_system_min(self):
+        self.assertEqual(self.my_solution.myAtoi("-2147483648"),-2147483648)
+
+    def test_really_large_positive_overflow(self):
+        self.assertEqual(self.my_solution.myAtoi("2147483649293892"),2147483647)
+
+    def test_really_large_negative_overflow(self):
+        self.assertEqual(self.my_solution.myAtoi("-2000000000000"),-2147483648)
+
+    def test_alphanumberic_input_no_sign(self):
+        self.assertEqual(self.my_solution.myAtoi("123a23"),123)
+
+    def test_alphanumberic_input_positive_sign(self):
+        self.assertEqual(self.my_solution.myAtoi("+123a23"),123)
+
+    def test_alphanumberic_input_negative_sign(self):
+        self.assertEqual(self.my_solution.myAtoi("-123a23"),-123)
+
+
+
 if __name__ == '__main__':
     unittest.main()
 
 
 # print my_solution.myAtoi(')')
 # print my_solution.myAtoi('+')
-
-#print my_solution.myAtoi('+123a23')
-#print my_solution.myAtoi("2147483648")
-#print my_solution.myAtoi("-2000000000000")
-#print my_solution.myAtoi("-2147483649")
-#print my_solution.myAtoi("2147483649")
-#print my_solution.myAtoi("2147483649293892")
 # print my_solution.myAtoi('-+1')
