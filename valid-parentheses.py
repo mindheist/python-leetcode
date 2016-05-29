@@ -50,5 +50,8 @@ class TestValidParenthesis(unittest.TestCase):
     def test_fail_scenario(self):
         self.assertFalse(self.my_solution.isValid('(){}['))
 
+    def test_a_real_expression(self):
+        self.assertTrue(self.my_solution.isValid('[a+b]'))
+
 if __name__ == "__main__":
     unittest.main()

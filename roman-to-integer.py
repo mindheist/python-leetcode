@@ -65,6 +65,16 @@ class TestRomanToInteger(unittest.TestCase):
     def test_roman_M(self):
         self.assertEquals(self.my_solution.romanToInt('M'),1000)
 
+    def test_roman_IV(self):
+        self.assertEquals(self.my_solution.romanToInt('IV'),4)
+
+    def test_roman_IX(self):
+        self.assertEquals(self.my_solution.romanToInt('IX'),9)
+
+    def test_roman_II(self):
+        self.assertEquals(self.my_solution.romanToInt('II'),2)
+
+
 if __name__ == "__main__":
     unittest.main()
 
