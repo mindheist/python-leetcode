@@ -14,7 +14,7 @@ class solution:
 
 			for i in xrange(len(self.string)):
 				if int(self.string[i])%3==0:
-					self.string[i] = self.div_by_3.pop()
+					self.string[i] = self.div_by_3.pop() # this is not possible because strings in python are immutable
 				else:
 					continue
 		return self.string
