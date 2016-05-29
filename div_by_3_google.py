@@ -7,14 +7,16 @@ class solution:
 		else:
 			self.div_by_3 = []
 			for i in xrange(len(self.string)-1):
-				if int(self.string[i])%3==0:
+				if int(self.string[i])==0 or int(self.string[i])%3==0:
 					self.div_by_3.append(self.string[i])
 				else:
 					continue
+			print self.div_by_3
 
-			for i in xrange(len(self.string)):
+			for i in xrange(len(self.string)-1):
 				if int(self.string[i])%3==0:
-					self.string[i] = self.div_by_3.pop() # this is not possible because strings in python are immutable
+					#self.string[i] = self.div_by_3.pop() # this is not possible because strings in python are immutable
+					self.string = self.string[:i]+self.div_by_3.pop()+self.string[i+1:]
 				else:
 					continue
 		return self.string
