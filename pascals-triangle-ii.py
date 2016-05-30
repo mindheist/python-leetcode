@@ -7,7 +7,7 @@
 #
 # Note:
 # Could you optimize your algorithm to use only O(k) extra space?
-
+import unittest
 class Solution(object):
     def getRow(self, rowIndex):
         """
@@ -32,5 +32,23 @@ class Solution(object):
         else:
             return n*self.factorial(n-1)
 
-my_solution = Solution()
-print my_solution.getRow(5)
+class TestPascalsTriangle(unittest.TestCase):
+    my_solution = Solution()
+
+    # def test_pascals_triangle_1(self):
+    #     self.assertEqual(self.my_solution.getRow(1),[1])
+
+    def test_pascals_triangle_1(self):
+        self.assertEqual(self.my_solution.getRow(1),[1, 1])
+
+    def test_pascals_triangle_2(self):
+        self.assertEqual(self.my_solution.getRow(2),[1, 2, 1])
+
+    def test_pascals_triangle_3(self):
+        self.assertEqual(self.my_solution.getRow(3),[1, 3, 3, 1])
+
+    def test_pascals_triangle_4(self):
+        self.assertEqual(self.my_solution.getRow(4),[1, 4, 6, 4, 1])
+
+if __name__ == "__main__":
+    unittest.main()

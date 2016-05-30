@@ -15,7 +15,7 @@
 
 # solution video : https://www.youtube.com/watch?v=rlKGgxck7X0
 
-
+import unittest
 class Solution(object):
     def generate(self, numRows):
         """
@@ -43,5 +43,27 @@ class Solution(object):
         else:
             return n*self.factorial(n-1)
 
-my_solution = Solution()
-print my_solution.generate(5)
+class TestPascalsTriangle(unittest.TestCase):
+    my_solution = Solution()
+
+    def test_pascals_triangle_1(self):
+        self.assertEqual(self.my_solution.generate(1),[[1]])
+
+    def test_pascals_triangle_2(self):
+        self.assertEqual(self.my_solution.generate(2),[[1], [1, 1]])
+
+    def test_pascals_triangle_3(self):
+        self.assertEqual(self.my_solution.generate(3),[[1], [1, 1], [1, 2, 1]])
+
+    def test_pascals_triangle_4(self):
+        self.assertEqual(self.my_solution.generate(4),[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1]])
+
+    def test_pascals_triangle_5(self):
+        self.assertEqual(self.my_solution.generate(5),[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]])
+
+if __name__ == "__main__":
+    unittest.main()
+
+# [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
+# my_solution = Solution()
+# print my_solution.generate(6)
