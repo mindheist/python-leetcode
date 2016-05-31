@@ -11,6 +11,7 @@ class Solution(object):
         :type strs: List[str]
         :rtype: str
         """
+        # must read about not Vs None here
         if not strs:
             return ''
         else:
@@ -26,6 +27,11 @@ class Solution(object):
 class TestLCP(unittest.TestCase):
     my_solution = Solution()
 
+    def test_default_pass(self):
+        self.assertEqual(self.my_solution.longestCommonPrefix(['Hello','Hell']),'Hell')
+
+    def test_empty_string(self):
+        self.assertEqual(self.my_solution.longestCommonPrefix([]),'')
 
 if __name__ == "__main__":
     unittest.main()
