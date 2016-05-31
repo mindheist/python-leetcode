@@ -4,7 +4,7 @@
 
 # Brilliant python solution ! this could be more concise , I have kept it longer for code readability
 # Hash every character (ie s[i]), if the length of the hash for that character is more than one - then break out of the loop
-
+import unittest
 class Solution(object):
     def longestCommonPrefix(self, strs):
         """
@@ -23,4 +23,9 @@ class Solution(object):
                     i+=1
             return strs[0][:i]
 
-            
+class TestLCP(unittest.TestCase):
+    my_solution = Solution()
+
+
+if __name__ == "__main__":
+    unittest.main()
