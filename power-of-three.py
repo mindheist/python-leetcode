@@ -4,6 +4,7 @@
 # Could you do it without using any loop / recursion?
 
 # This is a pretty basic solution ; not sure how I would do it without loops
+# More reading at https://leetcode.com/discuss/78532/summary-all-solutions-new-method-included-at-15-30pm-jan-8th
 
 
 import unittest
