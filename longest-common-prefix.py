@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/longest-common-prefix/
 # Write a function to find the longest common prefix string amongst an array of strings.
 # Reading : http://stackoverflow.com/questions/27486309/how-does-iter-and-key-in-python-max-min-function-work
+# https://leetcode.com/discuss/83792/line-python-solution-44ms-another-using-lexical-order-min-max
 
 # Brilliant python solution ! this could be more concise , I have kept it longer for code readability
 # Hash every character (ie s[i]), if the length of the hash for that character is more than one - then break out of the loop
