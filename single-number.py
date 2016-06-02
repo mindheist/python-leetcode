@@ -7,6 +7,8 @@
 
 # ********** NOTE *************************
 # Looks like l33tcode is not testing for empty string ; follow up
+# This implementation is O(nlogn) solution ; assuming I do a quick sort ( python's inbuilt sorting does somethign called TimSort)
+# An XOR based solution would take O(n) time , should try that next
 
 
 import unittest
