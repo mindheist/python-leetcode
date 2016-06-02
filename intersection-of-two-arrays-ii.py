@@ -13,7 +13,7 @@
 # What if nums1's size is small compared to num2's size? Which algorithm is better?
 # What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
 
-
+import unittest
 class Solution(object):
     def intersect(self, nums1, nums2):
         """
@@ -35,3 +35,17 @@ class Solution(object):
             else:
                 continue
         return return_list
+
+class TestArrayIntersection(unittest.TestCase):
+    my_solution = Solution()
+    def test_no_duplicate_inputs(self):
+        self.assertEqual(self.my_solution.intersect([1,2,3,4],[2,3,5,6]),[2,3])
+
+    def test_with_duplicates(self):
+        self.assertEqual(self.my_solution.intersect([1,1,2,3],[1,1]),[1,1])
+
+    def test_with_empty_arrays(self):
+        self.assertEqual(self.my_solution.intersect([],[]),[])
+
+if __name__ == "__main__":
+    unittest.main()
