@@ -15,6 +15,7 @@ the_dict = {
 #         print "is_dict"
 #     else:
 #         print "not_a_dict"
+
 for element in the_dict.keys():
     if isinstance(the_dict[element],dict):
         print "is_dict"

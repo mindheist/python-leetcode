@@ -31,5 +31,9 @@ class TestPowerOfFour(unittest.TestCase):
     def test_default_fail(self):
         self.assertFalse(self.my_solution.isPowerOfFour(40))
 
+    def test_for_zero(self):
+        self.assertFalse(self.my_solution.isPowerOfFour(0))
+        # Should 0 return True or False ?
+
 if __name__ == "__main__":
     unittest.main()

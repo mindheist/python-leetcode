@@ -7,13 +7,13 @@ class Solution(object):
         :rtype: bool
         """
         row_0 = self.get_rows(board,0)
-        truth_string = []
+        truth_board = [[],[],[],[],[],[],[],[],[]]
 
 
         for i in xrange(9):
             if row_0[i] != '.':
                 if self.get_columns(board,i).count(row_0[i]) < 2:
-                     truth_string.insert(i,1)
+                     truth_board.insert(i,1)
                 else:
                     return False
             else:
