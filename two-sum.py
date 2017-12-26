@@ -36,14 +36,22 @@ class Solution(object):
         # step 3 : Return [] if no such pair is found.
         return []
 
+# leet code runs about 19 tests for this program
+
 class TestTwoSum(unittest.TestCase):
     my_solution = Solution()
 
     def test_default_pass(self):
         self.assertEquals(self.my_solution.twoSum([2, 7, 11, 15],9),[0,1])
 
-    def test_empty_list(self):
+    def test_empty_list_positive_target(self):
         self.assertEquals(self.my_solution.twoSum([],15),[])
+
+    def test_empty_list_negative_target(self):
+        self.assertEquals(self.my_solution.twoSum([],-20),[])
+
+    def test_all_negative_integers(self):
+        self.assertEquals(self.my_solution.twoSum([-1,-2,-3,-4,-5,-10,-12,-13,-15,-20,-25],-45),[9,10])    
 
     def test_no_valid_pair(self):
         self.assertEquals(self.my_solution.twoSum([2, 7, 11, 15],100),[])
@@ -53,6 +61,7 @@ class TestTwoSum(unittest.TestCase):
 
     def test_positive_negative_integer_adds_to_zero(self):
         self.assertEquals(self.my_solution.twoSum([-1,1,2,3],0),[0,1])    
+
 
 
 if __name__ == "__main__":
