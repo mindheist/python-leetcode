@@ -51,5 +51,9 @@ class TestTwoSum(unittest.TestCase):
     def test_negative_integers(self):
         self.assertEquals(self.my_solution.twoSum([-1,-2,10,15,557,23,45,78],-3),[0,1])
 
+    def test_positive_negative_integer_adds_to_zero(self):
+        self.assertEquals(self.my_solution.twoSum([-1,1,2,3],0),[0,1])    
+
+
 if __name__ == "__main__":
     unittest.main()
